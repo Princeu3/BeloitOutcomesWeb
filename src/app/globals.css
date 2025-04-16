@@ -1,0 +1,175 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+  --primary: #003366;
+  --secondary: #F1B82D;
+  --tertiary: #8B2332;
+  --accent: #336699;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+@layer base {
+  body {
+    @apply bg-background text-foreground;
+    font-family: var(--font-inter);
+  }
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-montserrat);
+    @apply font-bold tracking-tight;
+  }
+}
+
+@layer components {
+  .hero-gradient {
+    @apply bg-gradient-to-r from-primary via-accent to-primary bg-cover;
+  }
+  
+  .container-custom {
+    @apply container mx-auto px-4 md:px-8 max-w-7xl;
+  }
+  
+  .btn-primary {
+    @apply bg-primary hover:bg-opacity-90 text-white px-6 py-3 rounded-md transition-all font-semibold 
+           hover:shadow-lg hover:scale-105 active:scale-95;
+  }
+  
+  .btn-secondary {
+    @apply bg-secondary hover:bg-opacity-90 text-primary px-6 py-3 rounded-md transition-all font-semibold
+           hover:shadow-lg hover:scale-105 active:scale-95;
+  }
+
+  .text-gradient {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-primary to-accent;
+  }
+
+  .text-gradient-gold {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-secondary via-yellow-500 to-secondary;
+  }
+}
+
+@layer utilities {
+  .drop-shadow-glow {
+    filter: drop-shadow(0 0 0.5rem rgba(241, 184, 45, 0.3));
+  }
+
+  .text-shadow {
+    text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  }
+
+  .text-shadow-sm {
+    text-shadow: 0 1px 2px rgba(0,0,0,0.1);
+  }
+
+  .text-shadow-lg {
+    text-shadow: 0 4px 8px rgba(0,0,0,0.2);
+  }
+
+  .backdrop-blur-custom {
+    backdrop-filter: blur(8px) saturate(180%);
+  }
+}
+
+/* Custom Animations */
+@keyframes float {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+
+@keyframes shine {
+  0% {
+    background-position: 200% center;
+  }
+  100% {
+    background-position: -200% center;
+  }
+}
+
+.animate-shine {
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.2),
+    transparent
+  );
+  background-size: 200% 100%;
+  animation: shine 3s linear infinite;
+}
+
+/* Smooth Scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--primary);
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--accent);
+}
+
+/* Selection Color */
+::selection {
+  background: var(--secondary);
+  color: var(--primary);
+}
+
+/* Focus Outline */
+:focus {
+  outline: 2px solid var(--secondary);
+  outline-offset: 2px;
+}
+
+:focus:not(:focus-visible) {
+  outline: none;
+}
+
+/* Loading Spinner */
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.loading-spinner {
+  @apply w-6 h-6 border-2 border-secondary border-t-transparent rounded-full;
+  animation: spin 0.6s linear infinite;
+}
