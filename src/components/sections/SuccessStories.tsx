@@ -93,7 +93,7 @@ export default function SuccessStories() {
           }}
         >
           <CarouselContent className="-ml-2 md:-ml-4">
-            {successStories.map((story, index) => (
+            {successStories.map((story) => (
               <CarouselItem key={story.id} className="pl-2 md:pl-4 md:basis-1/2 lg:basis-1/2">
                 <div className="p-1">
                   <Card className="relative overflow-hidden border-none shadow-lg bg-white/50 backdrop-blur-sm">

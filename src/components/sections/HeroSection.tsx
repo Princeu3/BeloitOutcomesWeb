@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useEffect, useState, useRef } from "react";
-import { motion, useScroll, useTransform, AnimatePresence } from "framer-motion";
+import { motion, useScroll, useTransform } from "framer-motion";
 import CountUp from "react-countup";
 import { useInView } from "react-intersection-observer";
 import Image from "next/image";
@@ -228,33 +228,33 @@ export default function HeroSection() {
                 className="flex flex-wrap gap-4"
               >
                 <Button
-                  as="a"
-                  href="/outcomes"
+                  asChild
                   className="group relative overflow-hidden bg-white/10 backdrop-blur-md hover:bg-white/20 text-white px-6 py-3 rounded-lg font-medium text-base transition-all transform hover:scale-105 hover:shadow-2xl border border-white/20"
-                  size="md"
                 >
-                  <span className="relative z-10">Explore Outcomes</span>
-                  <motion.div
-                    className="absolute inset-0 bg-gradient-to-r from-white/20 via-white/10 to-transparent"
-                    initial={{ x: '-100%' }}
-                    whileHover={{ x: '100%' }}
-                    transition={{ duration: 0.8, ease: 'easeInOut' }}
-                  />
+                  <a href="/outcomes">
+                    <span className="relative z-10">Explore Outcomes</span>
+                    <motion.div
+                      className="absolute inset-0 bg-gradient-to-r from-white/20 via-white/10 to-transparent"
+                      initial={{ x: '-100%' }}
+                      whileHover={{ x: '100%' }}
+                      transition={{ duration: 0.8, ease: 'easeInOut' }}
+                    />
+                  </a>
                 </Button>
                 <Button
-                  as="a"
-                  href="/contact"
+                  asChild
+                  variant="outline"
                   className="group relative overflow-hidden bg-white/5 backdrop-blur-md border border-white/20 text-white hover:bg-white/10 px-6 py-3 rounded-lg font-medium text-base transition-all transform hover:scale-105"
-                  size="md"
-                  variant="bordered"
                 >
-                  <span className="relative z-10">Contact Us</span>
-                  <motion.div
-                    className="absolute inset-0 bg-gradient-to-r from-white/10 via-white/5 to-transparent"
-                    initial={{ x: '-100%' }}
-                    whileHover={{ x: '100%' }}
-                    transition={{ duration: 0.8, ease: 'easeInOut' }}
-                  />
+                  <a href="/contact">
+                    <span className="relative z-10">Contact Us</span>
+                    <motion.div
+                      className="absolute inset-0 bg-gradient-to-r from-white/10 via-white/5 to-transparent"
+                      initial={{ x: '-100%' }}
+                      whileHover={{ x: '100%' }}
+                      transition={{ duration: 0.8, ease: 'easeInOut' }}
+                    />
+                  </a>
                 </Button>
               </motion.div>
             </div>
