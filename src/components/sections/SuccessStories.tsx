@@ -106,7 +106,7 @@ export default function SuccessStories() {
                         {/* Main Content */}
                         <div className="flex-grow">
                           <p className="text-gray-700 italic mb-6 line-clamp-4">
-                            "{story.quote}"
+                            &quot;{story.quote}&quot;
                           </p>
                         </div>
 

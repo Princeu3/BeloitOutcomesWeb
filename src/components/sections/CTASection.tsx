@@ -30,7 +30,7 @@ export default function CTASection() {
                 <span className="text-primary block">Success Story?</span>
               </h2>
               <p className="text-lg text-gray-600 max-w-lg">
-                Take the first step towards your extraordinary journey. Connect with us to learn more about Beloit's transformative education and global opportunities.
+                Take the first step towards your extraordinary journey. Connect with us to learn more about Beloit&apos;s transformative education and global opportunities.
               </p>
             </div>
 

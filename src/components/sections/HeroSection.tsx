@@ -18,7 +18,6 @@ const statistics = [
 
 export default function HeroSection() {
   const [currentStat, setCurrentStat] = useState(0);
-  const [isVideoLoaded, setIsVideoLoaded] = useState(false);
   const [isPlaying, setIsPlaying] = useState(true);
   const [isMuted, setIsMuted] = useState(true);
   const [loadingProgress, setLoadingProgress] = useState(0);
@@ -54,16 +53,10 @@ export default function HeroSection() {
         }
       };
 
-      const handleCanPlayThrough = () => {
-        setIsVideoLoaded(true);
-      };
-
       video.addEventListener('progress', handleProgress);
-      video.addEventListener('canplaythrough', handleCanPlayThrough);
 
       return () => {
         video.removeEventListener('progress', handleProgress);
-        video.removeEventListener('canplaythrough', handleCanPlayThrough);
       };
     }
   }, []);

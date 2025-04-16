@@ -99,9 +99,11 @@ export default function CareerOutcomesSnapshot() {
                     className="absolute top-4 right-4 bg-white p-4 rounded-lg shadow-lg"
                   >
                     <div className="flex items-center mb-2">
-                      <img 
+                      <Image 
                         src={`https://flagcdn.com/32x24/${selectedCountryData.code.toLowerCase()}.png`}
                         alt={`${selectedCountryData.name} flag`}
+                        width={32}
+                        height={24}
                         className="mr-2"
                       />
                       <h4 className="font-bold text-primary">{selectedCountryData.name}</h4>
@@ -132,9 +134,11 @@ export default function CareerOutcomesSnapshot() {
                       variant={country.code === selectedCountry ? "solid" : "bordered"}
                       onClick={() => setSelectedCountry(country.code)}
                     >
-                      <img 
+                      <Image 
                         src={`https://flagcdn.com/16x12/${country.code.toLowerCase()}.png`}
                         alt={`${country.name} flag`}
+                        width={16}
+                        height={12}
                         className="mr-1"
                       />
                       {country.name}

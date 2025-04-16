@@ -36,14 +36,24 @@ const testimonials = [
 
 // Partner logos with real company names
 const partnerLogos = [
-  { name: "Microsoft", logo: "/employers/microsoft.png" },
-  { name: "Deloitte", logo: "/employers/deloitte.png" },
-  { name: "Apple", logo: "/employers/apple.png" },
-  { name: "Mayo Clinic", logo: "/employers/mayo.png" },
-  { name: "Goldman Sachs", logo: "/employers/goldman.png" },
-  { name: "McKinsey", logo: "/employers/mckinsey.png" },
-  { name: "Google", logo: "/employers/google.png" },
-  { name: "Meta", logo: "/employers/meta.png" },
+  { name: "ABC Supply Company", logo: "/employers/abc-supply.png" },
+  { name: "Belen Partners", logo: "/employers/belen-partners.png" },
+  { name: "Beloit Health Systems", logo: "/employers/beloit-health.png" },
+  { name: "Beloit Sky Carp", logo: "/employers/sky-carp.png" },
+  { name: "Corporate Contractors, Inc.", logo: "/employers/cci.png" },
+  { name: "Duluth Trading Company", logo: "/employers/duluth.png" },
+  { name: "Fairbanks Morse Defense", logo: "/employers/fmd.png" },
+  { name: "First National Bank and Trust", logo: "/employers/fnbt.png" },
+  { name: "Fitzgerald Asset Management", logo: "/employers/fitzgerald.png" },
+  { name: "Forward Janesville", logo: "/employers/forward-janesville.png" },
+  { name: "Geronimo Hospitality Group", logo: "/employers/geronimo.png" },
+  { name: "Hendricks Commercial Properties", logo: "/employers/hendricks.png" },
+  { name: "Hidden Creek Estates", logo: "/employers/hidden-creek.png" },
+  { name: "Juiced!", logo: "/employers/juiced.png" },
+  { name: "Kerry Ingredients", logo: "/employers/kerry.png" },
+  { name: "Mid-States Concrete Industries", logo: "/employers/mid-states.png" },
+  { name: "Rockford Icehogs", logo: "/employers/icehogs.png" },
+  { name: "Savant Wealth Management", logo: "/employers/savant.png" }
 ];
 
 export default function EmployerTestimonials() {
@@ -135,11 +145,11 @@ export default function EmployerTestimonials() {
             Our Partner Organizations
           </h3>
           
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4 md:gap-6">
             {partnerLogos.map((partner) => (
               <motion.div 
                 key={partner.name} 
-                className="bg-white rounded-lg p-4 h-24 flex items-center justify-center shadow-sm hover:shadow-md transition-shadow duration-300"
+                className="bg-white rounded-lg p-4 h-20 flex items-center justify-center shadow-sm hover:shadow-md transition-shadow duration-300"
                 whileHover={{ scale: 1.05 }}
                 transition={{ type: "spring", stiffness: 300 }}
               >
@@ -150,6 +160,9 @@ export default function EmployerTestimonials() {
                     fill
                     className="object-contain"
                   />
+                  <div className="absolute inset-0 flex items-center justify-center opacity-0 hover:opacity-100 transition-opacity duration-300 bg-black/5">
+                    <span className="text-xs text-center text-gray-600 px-2">{partner.name}</span>
+                  </div>
                 </div>
               </motion.div>
             ))}

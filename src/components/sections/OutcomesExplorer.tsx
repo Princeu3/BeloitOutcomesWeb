@@ -1,7 +1,6 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
-import { motion } from "framer-motion";
 import {
   Card,
   CardBody,
@@ -11,7 +10,8 @@ import {
   Chip,
 } from "@nextui-org/react";
 import { Button } from "@/components/ui/button";
-import { FaBuilding, FaUniversity, FaMapMarkerAlt, FaQuoteLeft, FaLinkedin } from "react-icons/fa";
+import { FaLinkedin } from "react-icons/fa";
+import Image from "next/image";
 
 // Sample student outcomes data
 const outcomeProfiles = [
@@ -181,11 +181,9 @@ export default function OutcomesExplorer() {
   });
   
   const [filteredProfiles, setFilteredProfiles] = useState(outcomeProfiles);
-  const [isFiltering, setIsFiltering] = useState(false);
 
   // Apply filters effect
   useEffect(() => {
-    setIsFiltering(true);
     const filteredResults = outcomeProfiles.filter((profile) => {
       // Return true if no filters of this type are selected, or if profile matches any selected filter
       const yearFilter = filters.year.size === 0 || filters.year.has(profile.year.toString());
@@ -197,10 +195,7 @@ export default function OutcomesExplorer() {
       return yearFilter && majorFilter && divisionFilter && outcomeTypeFilter && citizenshipFilter;
     });
     
-    setTimeout(() => {
-      setFilteredProfiles(filteredResults);
-      setIsFiltering(false);
-    }, 500);
+    setFilteredProfiles(filteredResults);
   }, [filters]);
 
   // Handle filter changes
@@ -220,25 +215,6 @@ export default function OutcomesExplorer() {
       outcomeType: new Set([]),
       citizenship: new Set([]),
     });
-  };
-
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.1,
-      },
-    },
-  };
-
-  const itemVariants = {
-    hidden: { opacity: 0, y: 20 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: { duration: 0.4 },
-    },
   };
 
   return (
@@ -352,13 +328,19 @@ export default function OutcomesExplorer() {
                         <h3 className="text-lg font-semibold group-hover:text-primary transition-colors">
                           {profile.name}
                         </h3>
-                        <img
-                          src={`https://flagcdn.com/24x18/${profile.countryCode.toLowerCase()}.png`}
-                          alt={`${profile.country} flag`}
-                          className="h-4"
-                        />
+                        <div className="flex items-center gap-4">
+                          <Image
+                            src={`https://flagcdn.com/32x24/${profile.countryCode.toLowerCase()}.png`}
+                            alt={`${profile.country} flag`}
+                            width={32}
+                            height={24}
+                            className="rounded-sm"
+                          />
+                          <div>
+                            <p className="text-sm text-gray-600">{profile.major}, {profile.year}</p>
+                          </div>
+                        </div>
                       </div>
-                      <p className="text-sm text-gray-600">{profile.major}, {profile.year}</p>
                     </div>
                     
                     {/* Career Section */}
