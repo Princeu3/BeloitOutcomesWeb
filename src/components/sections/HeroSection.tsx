@@ -6,9 +6,6 @@ import CountUp from "react-countup";
 import { useInView } from "react-intersection-observer";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
-import { Badge } from "@/components/ui/badge";
-import { FaArrowRight } from "react-icons/fa";
-import { FaPlay, FaPause, FaVolumeMute, FaVolumeUp } from "react-icons/fa";
 
 // Sample statistics
 const statistics = [
@@ -20,9 +17,6 @@ const statistics = [
 
 export default function HeroSection() {
   const [currentStat, setCurrentStat] = useState(0);
-  const [isPlaying, setIsPlaying] = useState(true);
-  const [isMuted, setIsMuted] = useState(true);
-  const [loadingProgress, setLoadingProgress] = useState(0);
   const videoRef = useRef<HTMLVideoElement>(null);
   const containerRef = useRef<HTMLDivElement>(null);
   
@@ -43,43 +37,6 @@ export default function HeroSection() {
       return () => clearInterval(interval);
     }
   }, [inView]);
-
-  useEffect(() => {
-    if (videoRef.current) {
-      const video = videoRef.current;
-      
-      const handleProgress = () => {
-        if (video.buffered.length > 0) {
-          const progress = (video.buffered.end(0) / video.duration) * 100;
-          setLoadingProgress(progress);
-        }
-      };
-
-      video.addEventListener('progress', handleProgress);
-
-      return () => {
-        video.removeEventListener('progress', handleProgress);
-      };
-    }
-  }, []);
-
-  const handlePlayPause = () => {
-    if (videoRef.current) {
-      if (isPlaying) {
-        videoRef.current.pause();
-      } else {
-        videoRef.current.play();
-      }
-      setIsPlaying(!isPlaying);
-    }
-  };
-
-  const handleMuteToggle = () => {
-    if (videoRef.current) {
-      videoRef.current.muted = !isMuted;
-      setIsMuted(!isMuted);
-    }
-  };
 
   const variants = {
     hidden: { opacity: 0, y: 20 },
@@ -109,14 +66,6 @@ export default function HeroSection() {
       transition: {
         duration: 0.3
       }
-    }
-  };
-
-  const loadingVariants = {
-    initial: { width: "0%" },
-    animate: { 
-      width: `${loadingProgress}%`,
-      transition: { duration: 0.5, ease: "easeInOut" }
     }
   };
 
