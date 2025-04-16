@@ -160,7 +160,7 @@ export default function CareerOutcomesSnapshot() {
               >
                 <Tab key="employers" title="Top Employers">
                   <div className="py-2 space-y-4">
-                    {topEmployers.map((employer, index) => (
+                    {topEmployers.map((employer) => (
                       <div key={employer.name} className="flex items-center justify-between">
                         <div className="flex items-center">
                           <div className="w-10 h-10 bg-gray-100 rounded-md mr-3 flex items-center justify-center">
@@ -176,7 +176,7 @@ export default function CareerOutcomesSnapshot() {
                 </Tab>
                 <Tab key="gradschools" title="Grad Schools">
                   <div className="py-2 space-y-4">
-                    {topGradSchools.map((school, index) => (
+                    {topGradSchools.map((school) => (
                       <div key={school.name} className="flex items-center justify-between">
                         <div className="flex items-center">
                           <div className="w-10 h-10 bg-gray-100 rounded-md mr-3 flex items-center justify-center">
