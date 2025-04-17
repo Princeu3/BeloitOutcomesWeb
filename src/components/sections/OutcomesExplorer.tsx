@@ -93,6 +93,94 @@ const outcomeProfiles = [
     quote: "Beloit's personalized education in mathematics and computer science, combined with research opportunities like the Pakula Biomedical Research Program, gave me the perfect foundation for my career in software engineering."
   },
   {
+    id: "kelly-harrison",
+    name: "Kelly McLean Harrison",
+    country: "USA",
+    countryCode: "US",
+    major: "Major at Beloit College: Economics",
+    year: 2020,
+    outcomeType: "Employment",
+    employer: "MetLife",
+    title: "Senior Underwriter",
+    location: "Woodridge, Illinois",
+    linkedin: "kelly-harrison-417201157",
+    salary: "85000",
+    skills: [
+      "Data Analysis",
+      "Social Media Marketing",
+      "Underwriting",
+      "ERP Systems"
+    ],
+    languages: ["English"],
+    quote: "Beloit shaped both my analytical mindset and people skills—from basketball captain to analyst to underwriter."
+  },
+  {
+    id: "sahil-rizal",
+    name: "Sahil Rizal",
+    country: "Pakistan",
+    countryCode: "PK",
+    major: "Major at Beloit College: Quantitative Economics",
+    year: 2022,
+    outcomeType: "Employment",
+    employer: "Coherent Economics",
+    title: "Senior Analyst",
+    location: "College Station, Texas",
+    linkedin: "sahilrizal",
+    salary: "95000",
+    skills: [
+      "Stata",
+      "R",
+      "Regression Analysis",
+      "Antitrust Litigation"
+    ],
+    languages: ["English"],
+    quote: "Beloit gave me the confidence to turn raw data into arguments that win court cases."
+  },
+  {
+    id: "matt-laszlo",
+    name: "Matt Laszlo",
+    country: "USA",
+    countryCode: "US",
+    major: "Major at Beloit College: Economics",
+    year: 1992,
+    outcomeType: "Employment",
+    employer: "Beloit College",
+    title: "Performance Coach, Executive-in-Residence",
+    location: "United States",
+    linkedin: "matt-laszlo-839a253b",
+    salary: "N/A",
+    skills: [
+      "Organizational Development",
+      "Consumer Product Strategy",
+      "Coaching",
+      "Executive Leadership"
+    ],
+    languages: ["English"],
+    quote: "At Beloit, I learned leadership is about lifting others. Now I teach students to lead with empathy and impact."
+  },
+  {
+    id: "silvija-martincevic",
+    name: "Silvija Martincevic",
+    country: "USA",
+    countryCode: "US",
+    major: "Triple Major at Beloit College: Economics and Management, International Relations, German",
+    year: 2002,
+    outcomeType: "Employment",
+    employer: "Deputy",
+    title: "CEO",
+    location: "San Francisco, CA",
+    linkedin: "silvija-martincevic",
+    salary: "1000000",
+    skills: [
+      "E-commerce Strategy",
+      "Fintech Leadership",
+      "International Expansion",
+      "Board Governance"
+    ],
+    languages: ["English", "German"],
+    quote: "My journey from Beloit to building billion-dollar companies shows what's possible with a purpose-driven mindset."
+  },
+  {
     id: "danielle-strejc",
     name: "Danielle Strejc",
     country: "USA",
@@ -239,11 +327,14 @@ const outcomeTypes = [
 ];
 
 // More focused filter options
-const graduationYears = [2024, 2023, 2022, 2021, 2020, 2019];
+const graduationYears = [2024, 2023, 2022, 2021, 2020, 2019, 2002, 1992];
 const majors = [
   "Computer Science",
   "Mathematics",
   "Economics",
+  "Economics and Management",
+  "International Relations",
+  "German",
   "Anthropology",
   "Studio Art",
   "Theatre Arts",
