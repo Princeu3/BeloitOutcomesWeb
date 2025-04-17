@@ -6,6 +6,7 @@ import React, {
   useState,
   createContext,
   useContext,
+  useCallback,
 } from "react";
 import { IconX } from "@tabler/icons-react";
 import { cn } from "@/lib/utils";
@@ -163,10 +164,10 @@ export const Card = ({
   const containerRef = useRef<HTMLDivElement>(null);
   const { onCardClose, currentIndex } = useContext(CarouselContext);
 
-  const handleClose = () => {
+  const handleClose = useCallback(() => {
     setOpen(false);
     onCardClose(index);
-  };
+  }, [setOpen, onCardClose, index]);
 
   useEffect(() => {
     function onKeyDown(event: KeyboardEvent) {

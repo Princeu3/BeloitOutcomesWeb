@@ -3,6 +3,7 @@
 import React, { useState, useRef} from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { IoChevronBack, IoChevronForward } from 'react-icons/io5';
+import Image from 'next/image';
 
 interface Card {
   id: number;
@@ -87,11 +88,13 @@ const AppleCardsCarousel: React.FC<AppleCardsCarouselProps> = ({ cards }) => {
             <div className="w-full h-full p-8 flex items-center justify-center">
               <div className="bg-white rounded-2xl shadow-2xl overflow-hidden w-full max-w-4xl transform transition-transform hover:scale-[1.02] cursor-pointer">
                 <div className="flex flex-col md:flex-row h-full">
-                  <div className="md:w-1/2">
-                    <img
+                  <div className="md:w-1/2 relative h-64 md:h-full">
+                    <Image
                       src={cards[currentIndex].imageUrl}
                       alt={cards[currentIndex].title}
-                      className="w-full h-64 md:h-full object-cover"
+                      fill
+                      className="object-cover"
+                      sizes="(max-width: 768px) 100vw, 50vw"
                     />
                   </div>
                   <div className="md:w-1/2 p-8 flex flex-col justify-center">
