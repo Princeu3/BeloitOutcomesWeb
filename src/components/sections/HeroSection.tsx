@@ -181,13 +181,13 @@ export default function HeroSection() {
                   className="group relative overflow-hidden bg-white/10 backdrop-blur-md hover:bg-white/20 text-white px-6 py-3 rounded-lg font-medium text-base transition-all transform hover:scale-105 hover:shadow-2xl border border-white/20"
                 >
                   <a href="/outcomes">
-                    <span className="relative z-10">Explore Outcomes</span>
-                    <motion.div
-                      className="absolute inset-0 bg-gradient-to-r from-white/20 via-white/10 to-transparent"
-                      initial={{ x: '-100%' }}
-                      whileHover={{ x: '100%' }}
-                      transition={{ duration: 0.8, ease: 'easeInOut' }}
-                    />
+                  <span className="relative z-10">Explore Outcomes</span>
+                  <motion.div
+                    className="absolute inset-0 bg-gradient-to-r from-white/20 via-white/10 to-transparent"
+                    initial={{ x: '-100%' }}
+                    whileHover={{ x: '100%' }}
+                    transition={{ duration: 0.8, ease: 'easeInOut' }}
+                  />
                   </a>
                 </Button>
                 <Button
@@ -196,13 +196,13 @@ export default function HeroSection() {
                   className="group relative overflow-hidden bg-white/5 backdrop-blur-md border border-white/20 text-white hover:bg-white/10 px-6 py-3 rounded-lg font-medium text-base transition-all transform hover:scale-105"
                 >
                   <a href="/contact">
-                    <span className="relative z-10">Contact Us</span>
-                    <motion.div
-                      className="absolute inset-0 bg-gradient-to-r from-white/10 via-white/5 to-transparent"
-                      initial={{ x: '-100%' }}
-                      whileHover={{ x: '100%' }}
-                      transition={{ duration: 0.8, ease: 'easeInOut' }}
-                    />
+                  <span className="relative z-10">Contact Us</span>
+                  <motion.div
+                    className="absolute inset-0 bg-gradient-to-r from-white/10 via-white/5 to-transparent"
+                    initial={{ x: '-100%' }}
+                    whileHover={{ x: '100%' }}
+                    transition={{ duration: 0.8, ease: 'easeInOut' }}
+                  />
                   </a>
                 </Button>
               </motion.div>
