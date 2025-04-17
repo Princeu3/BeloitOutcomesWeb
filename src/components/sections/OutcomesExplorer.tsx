@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useEffect, useMemo } from "react";
+import React, { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import {
   Card,
@@ -19,38 +19,9 @@ import { Badge } from "@/components/ui/badge";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { Separator } from "@/components/ui/separator";
 import { FaLinkedin } from "react-icons/fa";
+import { FiCalendar, FiBook, FiBriefcase, FiFilter, FiX } from "react-icons/fi";
 import Image from "next/image";
 import { cn } from "@/lib/utils";
-import { Command } from "@/components/ui/command";
-import { CommandInput, CommandList, CommandEmpty, CommandGroup, CommandItem } from "@/components/ui/command";
-
-interface AlumniProfile {
-  id: string;
-  name: string;
-  year: number;
-  major: string;
-  division: string;
-  outcomeType: string;
-  employer: string;
-  title: string;
-  location: string;
-  country: string;
-  countryCode: string;
-  citizenship: string;
-  linkedin: string;
-  salary: string;
-  skills: string[];
-  languages: string[];
-  quote: string;
-}
-
-interface Filters {
-  year: Set<string>;
-  major: Set<string>;
-  division: Set<string>;
-  outcomeType: Set<string>;
-  citizenship: Set<string>;
-}
 
 // Sample student outcomes data
 const outcomeProfiles = [
@@ -259,7 +230,13 @@ const outcomeProfiles = [
 ];
 
 // Simplified outcome types
-const outcomeTypes = ["Employment", "Graduate School", "Self-employed"];
+const outcomeTypes = [
+  "Employment",
+  "Graduate School",
+  "Self-employed",
+  "Seeking Employment",
+  "Other"
+];
 
 // More focused filter options
 const graduationYears = [2024, 2023, 2022, 2021, 2020, 2019];
@@ -276,17 +253,18 @@ const majors = [
 ];
 
 // Define filter types
-type FilterKeys = "year" | "major";
+type FilterKeys = "year" | "major" | "outcomeType";
 
 export default function OutcomesExplorer() {
   const [filters, setFilters] = useState<Record<FilterKeys, Set<string>>>({
     year: new Set([]),
     major: new Set([]),
+    outcomeType: new Set([]),
   });
   
   const [filteredProfiles, setFilteredProfiles] = useState<typeof outcomeProfiles>([]);
   const [showAll, setShowAll] = useState(false);
-  const hasActiveFilters = filters.year.size > 0 || filters.major.size > 0;
+  const hasActiveFilters = filters.year.size > 0 || filters.major.size > 0 || filters.outcomeType.size > 0;
 
   // Apply filters effect
   useEffect(() => {
@@ -296,16 +274,17 @@ export default function OutcomesExplorer() {
     }
 
     const filteredResults = outcomeProfiles.filter((profile) => {
-      // Return true if no filters of this type are selected, or if profile matches any selected filter
       const yearFilter = filters.year.size === 0 || filters.year.has(profile.year.toString());
       
-      // Enhanced major filter to match any selected major within the combined majors
       const majorFilter = filters.major.size === 0 || 
         Array.from(filters.major).some(selectedMajor => 
           profile.major.toLowerCase().includes(selectedMajor.toLowerCase())
         );
+
+      const outcomeTypeFilter = filters.outcomeType.size === 0 ||
+        filters.outcomeType.has(profile.outcomeType);
       
-      return yearFilter && majorFilter;
+      return yearFilter && majorFilter && outcomeTypeFilter;
     });
     
     setFilteredProfiles(filteredResults);
@@ -326,6 +305,7 @@ export default function OutcomesExplorer() {
     setFilters({
       year: new Set([]),
       major: new Set([]),
+      outcomeType: new Set([]),
     });
   };
 
@@ -335,6 +315,7 @@ export default function OutcomesExplorer() {
     setFilters({
       year: new Set([]),
       major: new Set([]),
+      outcomeType: new Set([]),
     });
   };
 
@@ -348,31 +329,37 @@ export default function OutcomesExplorer() {
           </p>
         </div>
 
-        {/* Refined Filters */}
-        <Card className="mb-8 shadow-md border-border/50 backdrop-blur-sm">
-          <CardHeader className="pb-4">
-            <h3 className="text-lg font-semibold text-foreground">Filter Alumni</h3>
-            <p className="text-sm text-muted-foreground">Use the filters below to find specific alumni outcomes or click Show All to view everyone</p>
+        {/* Enhanced Filters */}
+        <Card className="mb-8 shadow-md border-border/50 backdrop-blur-sm overflow-hidden">
+          <CardHeader className="pb-4 border-b border-border/50">
+            <div className="flex items-center justify-between">
+              <div className="flex items-center gap-2">
+                <FiFilter className="w-5 h-5 text-primary" />
+                <div>
+                  <h3 className="text-lg font-semibold text-foreground">Filter Alumni</h3>
+                  <p className="text-sm text-muted-foreground">Refine results by year, major, or outcome type</p>
+                </div>
+              </div>
+              {(hasActiveFilters || showAll) && (
+                <Button
+                  variant="ghost"
+                  onClick={clearFilters}
+                  size="sm"
+                  className="text-muted-foreground hover:text-foreground transition-colors gap-2"
+                >
+                  <FiX className="w-4 h-4" />
+                  Clear All
+                </Button>
+              )}
+            </div>
           </CardHeader>
-          <CardContent className="p-6 pt-0">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+
+          <CardContent className="p-6">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+              {/* Year Filter */}
               <div className="space-y-2.5">
                 <label className="text-sm font-medium text-foreground flex items-center gap-2">
-                  <svg
-                    width="15"
-                    height="15"
-                    viewBox="0 0 15 15"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                    className="opacity-70"
-                  >
-                    <path
-                      d="M4.5 1C4.77614 1 5 1.22386 5 1.5V2H10V1.5C10 1.22386 10.2239 1 10.5 1C10.7761 1 11 1.22386 11 1.5V2H12.5C13.3284 2 14 2.67157 14 3.5V12.5C14 13.3284 13.3284 14 12.5 14H2.5C1.67157 14 1 13.3284 1 12.5V3.5C1 2.67157 1.67157 2 2.5 2H4V1.5C4 1.22386 4.22386 1 4.5 1ZM10 3V3.5C10 3.77614 10.2239 4 10.5 4C10.7761 4 11 3.77614 11 3.5V3H12.5C12.7761 3 13 3.22386 13 3.5V5H2V3.5C2 3.22386 2.22386 3 2.5 3H4V3.5C4 3.77614 4.22386 4 4.5 4C4.77614 4 5 3.77614 5 3.5V3H10ZM2 6V12.5C2 12.7761 2.22386 13 2.5 13H12.5C12.7761 13 13 12.7761 13 12.5V6H2Z"
-                      fill="currentColor"
-                      fillRule="evenodd"
-                      clipRule="evenodd"
-                    />
-                  </svg>
+                  <FiCalendar className="w-4 h-4 text-primary" />
                   Graduation Year
                 </label>
                 <Select
@@ -380,7 +367,7 @@ export default function OutcomesExplorer() {
                   value={Array.from(filters.year)[0] || ""}
                 >
                   <SelectTrigger className="w-full bg-background border-input/50 hover:border-input focus:ring-1 focus:ring-ring/30 transition-all">
-                    <SelectValue placeholder="Select a year" />
+                    <SelectValue placeholder="Select year" />
                   </SelectTrigger>
                   <SelectContent className="bg-popover/95 backdrop-blur-sm border-border/50">
                     {graduationYears.map((year) => (
@@ -396,35 +383,10 @@ export default function OutcomesExplorer() {
                 </Select>
               </div>
 
+              {/* Major Filter */}
               <div className="space-y-2.5">
                 <label className="text-sm font-medium text-foreground flex items-center gap-2">
-                  <svg
-                    width="15"
-                    height="15"
-                    viewBox="0 0 15 15"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                    className="opacity-70"
-                  >
-                    <path
-                      d="M7.49996 1.80002C4.35194 1.80002 1.79996 4.352 1.79996 7.50002C1.79996 10.648 4.35194 13.2 7.49996 13.2C10.648 13.2 13.2 10.648 13.2 7.50002C13.2 4.352 10.648 1.80002 7.49996 1.80002ZM0.899963 7.50002C0.899963 3.85494 3.85488 0.900024 7.49996 0.900024C11.145 0.900024 14.1 3.85494 14.1 7.50002C14.1 11.1451 11.145 14.1 7.49996 14.1C3.85488 14.1 0.899963 11.1451 0.899963 7.50002Z"
-                      fill="currentColor"
-                      fillRule="evenodd"
-                      clipRule="evenodd"
-                    />
-                    <path
-                      d="M13.4999 7.89998H1.49994V7.09998H13.4999V7.89998Z"
-                      fill="currentColor"
-                      fillRule="evenodd"
-                      clipRule="evenodd"
-                    />
-                    <path
-                      d="M7.09991 13.5V1.5H7.89991V13.5H7.09991Z"
-                      fill="currentColor"
-                      fillRule="evenodd"
-                      clipRule="evenodd"
-                    />
-                  </svg>
+                  <FiBook className="w-4 h-4 text-primary" />
                   Major
                 </label>
                 <Select
@@ -432,7 +394,7 @@ export default function OutcomesExplorer() {
                   value={Array.from(filters.major)[0] || ""}
                 >
                   <SelectTrigger className="w-full bg-background border-input/50 hover:border-input focus:ring-1 focus:ring-ring/30 transition-all">
-                    <SelectValue placeholder="Pick a major" />
+                    <SelectValue placeholder="Select major" />
                   </SelectTrigger>
                   <SelectContent className="bg-popover/95 backdrop-blur-sm border-border/50">
                     <ScrollArea className="h-[200px] pr-3">
@@ -449,59 +411,66 @@ export default function OutcomesExplorer() {
                   </SelectContent>
                 </Select>
               </div>
-            </div>
-          
-            <Separator className="my-6" />
-            
-            <div className="flex justify-between items-center">
-              <div className="flex items-center gap-2">
-                <div className="h-2 w-2 rounded-full bg-primary animate-pulse" />
-                <p className="text-sm text-muted-foreground">
-                  {filteredProfiles.length > 0 ? (
-                    <>Found <span className="font-medium text-foreground">{filteredProfiles.length}</span> alumni</>
-                  ) : (
-                    <span className="text-muted-foreground">Select filters or show all to view alumni</span>
-                  )}
-                </p>
-              </div>
-              <div className="flex gap-2">
-                {(hasActiveFilters || showAll) && (
-                  <Button
-                    variant="outline"
-                    onClick={clearFilters}
-                    size="sm"
-                    className="text-muted-foreground hover:text-foreground border-input/50 hover:border-input transition-colors"
-                  >
-                    <svg
-                      width="15"
-                      height="15"
-                      viewBox="0 0 15 15"
-                      fill="none"
-                      xmlns="http://www.w3.org/2000/svg"
-                      className="mr-2 h-4 w-4"
-                    >
-                      <path
-                        d="M11.7816 4.03157C12.0062 3.80702 12.0062 3.44295 11.7816 3.2184C11.5571 2.99385 11.193 2.99385 10.9685 3.2184L7.50005 6.68682L4.03164 3.2184C3.80708 2.99385 3.44301 2.99385 3.21846 3.2184C2.99391 3.44295 2.99391 3.80702 3.21846 4.03157L6.68688 7.49999L3.21846 10.9684C2.99391 11.193 2.99391 11.557 3.21846 11.7816C3.44301 12.0061 3.80708 12.0061 4.03164 11.7816L7.50005 8.31316L10.9685 11.7816C11.193 12.0061 11.5571 12.0061 11.7816 11.7816C12.0062 11.557 12.0062 11.193 11.7816 10.9684L8.31322 7.49999L11.7816 4.03157Z"
-                        fill="currentColor"
-                        fillRule="evenodd"
-                        clipRule="evenodd"
-                      />
-                    </svg>
-                    Clear
-                  </Button>
-                )}
-                <Button
-                  variant="default"
-                  onClick={handleShowAll}
-                  size="sm"
-                  className={cn(
-                    "bg-primary hover:bg-primary/90",
-                    showAll && "bg-primary/90"
-                  )}
+
+              {/* Outcome Type Filter */}
+              <div className="space-y-2.5">
+                <label className="text-sm font-medium text-foreground flex items-center gap-2">
+                  <FiBriefcase className="w-4 h-4 text-primary" />
+                  Outcome Type
+                </label>
+                <Select
+                  onValueChange={(value: string) => handleFilterChange("outcomeType", value)}
+                  value={Array.from(filters.outcomeType)[0] || ""}
                 >
-                  Show All Alumni
-                </Button>
+                  <SelectTrigger className="w-full bg-background border-input/50 hover:border-input focus:ring-1 focus:ring-ring/30 transition-all">
+                    <SelectValue placeholder="Select outcome" />
+                  </SelectTrigger>
+                  <SelectContent className="bg-popover/95 backdrop-blur-sm border-border/50">
+                    {outcomeTypes.map((type) => (
+                      <SelectItem 
+                        key={type} 
+                        value={type}
+                        className="hover:bg-accent focus:bg-accent cursor-pointer transition-colors"
+                      >
+                        {type}
+                      </SelectItem>
+                    ))}
+                  </SelectContent>
+                </Select>
               </div>
+            </div>
+
+            <Separator className="my-6" />
+
+            <div className="flex justify-between items-center">
+              <div className="flex items-center gap-3">
+                <div className="flex items-center gap-2">
+                  <div className="h-2 w-2 rounded-full bg-primary animate-pulse" />
+                  <p className="text-sm text-muted-foreground">
+                    {filteredProfiles.length > 0 ? (
+                      <>Found <span className="font-medium text-foreground">{filteredProfiles.length}</span> alumni</>
+                    ) : (
+                      <span className="text-muted-foreground">Select filters or show all to view alumni</span>
+                    )}
+                  </p>
+                </div>
+                {(hasActiveFilters || showAll) && (
+                  <Badge variant="secondary" className="text-xs">
+                    {showAll ? "Showing All" : `${Object.values(filters).reduce((acc, curr) => acc + curr.size, 0)} Active Filters`}
+                  </Badge>
+                )}
+              </div>
+              <Button
+                variant="default"
+                onClick={handleShowAll}
+                size="sm"
+                className={cn(
+                  "bg-primary hover:bg-primary/90 transition-colors",
+                  showAll && "bg-primary/90"
+                )}
+              >
+                Show All Alumni
+              </Button>
             </div>
           </CardContent>
         </Card>

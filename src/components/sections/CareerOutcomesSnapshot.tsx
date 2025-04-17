@@ -1,27 +1,15 @@
 "use client";
 
-import React, { useState, useRef } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import React from "react";
+import { motion } from "framer-motion";
 import Image from "next/image";
-import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Badge } from "@/components/ui/badge";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { Progress } from "@/components/ui/progress";
-import { useTheme } from "next-themes";
 import WorldMap, { Destination } from "@/components/ui/world-map";
-
-// Update the geoUrl to use local file
-const geoUrl = "/world-countries.json";
-
-const mapConfig = {
-  projection: "geoMercator",
-  projectionConfig: {
-    scale: 120,
-    center: [0, 30] as [number, number],
-  },
-};
 
 // Sample data for top employers, grad schools, and salary
 const topEmployers = [
@@ -202,9 +190,6 @@ const destinationPoints: Destination[] = destinationCountries.map(country => ({
 }));
 
 export default function CareerOutcomesSnapshot() {
-  const [activeTab, setActiveTab] = useState("employers");
-  const [selectedCountry, setSelectedCountry] = useState<string | null>(null);
-
   const formatSalary = (salary: number) => {
     return new Intl.NumberFormat('en-US', { 
       style: 'currency', 
@@ -214,13 +199,7 @@ export default function CareerOutcomesSnapshot() {
   };
 
   const handleDotClick = (dot: Destination) => {
-    const country = destinationCountries.find(c => 
-      c.coordinates[1] === dot.end.lat && 
-      c.coordinates[0] === dot.end.lng
-    );
-    if (country) {
-      setSelectedCountry(country.code);
-    }
+    console.log('Dot clicked:', dot.end.label);
   };
 
   const totalAlumni = 11000;
