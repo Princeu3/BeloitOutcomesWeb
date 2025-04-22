@@ -109,7 +109,7 @@ export default function HeroSection() {
   };
 
   return (
-    <section id="hero" className="relative overflow-hidden h-[calc(100vh-64px)] flex items-center" ref={containerRef}>
+    <section id="hero" className="relative overflow-hidden h-screen flex items-center" ref={containerRef}>
       {/* Video Background */}
       <div className="absolute inset-0 z-0 bg-gray-800/90">
         <div className={`absolute inset-0 flex items-center justify-center bg-white z-50 transition-opacity duration-500 ${isVideoLoading ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}>
