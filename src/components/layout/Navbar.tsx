@@ -9,10 +9,10 @@ import {
   NavbarMenuToggle,
   NavbarMenu,
   NavbarMenuItem,
-  Link,
 } from "@nextui-org/react";
 import { usePathname } from "next/navigation";
 import Image from "next/image";
+import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
 import { Button } from "@/components/ui/button";
 
@@ -29,9 +29,9 @@ export default function AppNavbar() {
   const [hoveredItem, setHoveredItem] = useState<string | null>(null);
   const pathname = usePathname();
 
-  const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+  const handleNavClick = (e: React.MouseEvent | React.KeyboardEvent | React.TouchEvent, href: string) => {
+    e.preventDefault();
     if (href.startsWith('/#')) {
-      e.preventDefault();
       const targetId = href.replace('/#', '');
       const targetElement = document.getElementById(targetId);
       if (targetElement) {
