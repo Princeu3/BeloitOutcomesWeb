@@ -85,7 +85,7 @@ const alumniProfiles: AlumniProfile[] = [
   {
     name: "Danielle Strejc",
     headline: "Previously Risk & Financial Advisory Analyst @ Deloitte",
-    linkedinUrl: "#",
+    linkedinUrl: "https://www.linkedin.com/in/danielle-strejc-818101b4/",
     photoUrl: "/alumni/danielle-strejc.jpeg",
     graduationYear: "2020",
     major: "Quantitative Economics",
@@ -108,7 +108,7 @@ const alumniProfiles: AlumniProfile[] = [
   {
     name: "Kelly McLean Harrison",
     headline: "Senior Underwriter at MetLife",
-    linkedinUrl: "https://www.linkedin.com/in/kelly-harrison-417201157",
+    linkedinUrl: "https://www.linkedin.com/in/kelly-harrison-417201157/",
     photoUrl: "/alumni/kelly-mclean.webp",
     graduationYear: "2020",
     major: "Economics",
@@ -131,7 +131,7 @@ const alumniProfiles: AlumniProfile[] = [
   {
     name: "Sahil Rizal",
     headline: "Senior Analyst at Coherent Economics",
-    linkedinUrl: "https://www.linkedin.com/in/sahilrizal",
+    linkedinUrl: "https://www.linkedin.com/in/sahilrizal/",
     photoUrl: "/alumni/sahil-rizal.webp",
     graduationYear: "2022",
     major: "Quantitative Economics",
@@ -154,7 +154,7 @@ const alumniProfiles: AlumniProfile[] = [
   {
     name: "Matt Laszlo",
     headline: "Executive-in-Residence and Former SVP/CCO at Clorox",
-    linkedinUrl: "https://www.linkedin.com/in/matt-laszlo-839a253b",
+    linkedinUrl: "https://www.linkedin.com/in/matt-laszlo-839a253b/",
     photoUrl: "/alumni/matt-lazlo.jpeg",
     graduationYear: "1992",
     major: "Economics",
@@ -200,7 +200,7 @@ const alumniProfiles: AlumniProfile[] = [
   {
     name: "Ankit Dahiya",
     headline: "Analyst at Wells Fargo",
-    linkedinUrl: "#",
+    linkedinUrl: "https://www.linkedin.com/in/ankit00707/",
     photoUrl: "/alumni/ankit-dahiya.webp",
     graduationYear: "2024",
     major: "Quantitative Economics and Environmental Studies",

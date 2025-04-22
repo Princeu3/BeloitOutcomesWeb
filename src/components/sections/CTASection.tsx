@@ -91,7 +91,7 @@ export default function CTASection() {
             <Card className="bg-white/50 backdrop-blur-sm border-none shadow-lg hover:shadow-xl transition-shadow">
               <CardContent className="p-6">
                 <div className="space-y-2">
-                  <p className="text-4xl font-bold text-primary">94%</p>
+                  <p className="text-4xl font-bold text-primary">93%</p>
                   <p className="text-sm text-gray-600">Employed or in Graduate School</p>
                 </div>
               </CardContent>
@@ -100,7 +100,7 @@ export default function CTASection() {
             <Card className="bg-white/50 backdrop-blur-sm border-none shadow-lg hover:shadow-xl transition-shadow">
               <CardContent className="p-6">
                 <div className="space-y-2">
-                  <p className="text-4xl font-bold text-primary">100+</p>
+                  <p className="text-4xl font-bold text-primary">50+</p>
                   <p className="text-sm text-gray-600">Global Companies Hiring Beloiters</p>
                 </div>
               </CardContent>
@@ -109,7 +109,7 @@ export default function CTASection() {
             <Card className="bg-white/50 backdrop-blur-sm border-none shadow-lg hover:shadow-xl transition-shadow">
               <CardContent className="p-6">
                 <div className="space-y-2">
-                  <p className="text-4xl font-bold text-primary">50+</p>
+                  <p className="text-4xl font-bold text-primary">40+</p>
                   <p className="text-sm text-gray-600">Countries Represented</p>
                 </div>
               </CardContent>
@@ -118,7 +118,7 @@ export default function CTASection() {
             <Card className="bg-white/50 backdrop-blur-sm border-none shadow-lg hover:shadow-xl transition-shadow">
               <CardContent className="p-6">
                 <div className="space-y-2">
-                  <p className="text-4xl font-bold text-primary">8:1</p>
+                  <p className="text-4xl font-bold text-primary">10:1</p>
                   <p className="text-sm text-gray-600">Student-to-Faculty Ratio</p>
                 </div>
               </CardContent>

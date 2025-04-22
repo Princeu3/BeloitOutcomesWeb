@@ -13,7 +13,7 @@ const testimonials = [
     name: "Sarah Chen",
     title: "Technical Recruiting Manager",
     company: "Microsoft",
-    avatar: "/employers/microsoft.png",
+    avatar: "/images/employers/microsoft.png",
     quote: "Beloit graduates consistently demonstrate strong problem-solving abilities and adaptability. Their liberal arts foundation combined with technical skills makes them valuable assets to our engineering teams.",
   },
   {
@@ -21,7 +21,7 @@ const testimonials = [
     name: "Michael Rodriguez",
     title: "Senior Data Science Director",
     company: "Deloitte",
-    avatar: "/employers/deloitte.png",
+    avatar: "/images/employers/Deloitte.png",
     quote: "The analytical thinking and cross-disciplinary approach that Beloit College instills in its students aligns perfectly with what we look for in our consulting practice.",
   },
   {
@@ -29,31 +29,31 @@ const testimonials = [
     name: "Emily Patel",
     title: "Global Talent Acquisition Lead",
     company: "Apple",
-    avatar: "/employers/apple.png",
+    avatar: "/images/employers/apple.png",
     quote: "Beloit alumni bring a unique perspective to our teams. Their international exposure and ability to think globally while acting locally is exactly what we need in today's interconnected world.",
   },
 ];
 
 // Partner logos with real company names
 const partnerLogos = [
-  { name: "ABC Supply Company", logo: "/employers/abc-supply.png" },
-  { name: "Belen Partners", logo: "/employers/belen-partners.png" },
-  { name: "Beloit Health Systems", logo: "/employers/beloit-health.png" },
-  { name: "Beloit Sky Carp", logo: "/employers/sky-carp.png" },
-  { name: "Corporate Contractors, Inc.", logo: "/employers/cci.png" },
-  { name: "Duluth Trading Company", logo: "/employers/duluth.png" },
-  { name: "Fairbanks Morse Defense", logo: "/employers/fmd.png" },
-  { name: "First National Bank and Trust", logo: "/employers/fnbt.png" },
-  { name: "Fitzgerald Asset Management", logo: "/employers/fitzgerald.png" },
-  { name: "Forward Janesville", logo: "/employers/forward-janesville.png" },
-  { name: "Geronimo Hospitality Group", logo: "/employers/geronimo.png" },
-  { name: "Hendricks Commercial Properties", logo: "/employers/hendricks.png" },
-  { name: "Hidden Creek Estates", logo: "/employers/hidden-creek.png" },
-  { name: "Juiced!", logo: "/employers/juiced.png" },
-  { name: "Kerry Ingredients", logo: "/employers/kerry.png" },
-  { name: "Mid-States Concrete Industries", logo: "/employers/mid-states.png" },
-  { name: "Rockford Icehogs", logo: "/employers/icehogs.png" },
-  { name: "Savant Wealth Management", logo: "/employers/savant.png" }
+  { name: "ABC Supply Company", logo: "/images/employers/abc_supply.ico"},
+  { name: "Belen Partners", logo: "/images/employers/Belen.ico"},
+  { name: "Beloit Health Systems", logo: "/images/employers/BHS.ico" },
+  { name: "Beloit Sky Carp", logo: "/images/employers/SkyCarp.ico" },
+  { name: "Corporate Contractors, Inc.", logo: "/images/employers/cci.ico" },
+  { name: "Duluth Trading Company", logo: "/images/employers/duluth.ico" },
+  { name: "Fairbanks Morse Defense", logo: "/images/employers/fmd.ico" },
+  { name: "First National Bank and Trust", logo: "/images/employers/fmb.ico" },
+  { name: "Fitzgerald Asset Management", logo: "/images/employers/FAM.ico" },
+  { name: "Forward Janesville", logo: "/images/employers/forward_janesville.ico" },
+  { name: "Geronimo Hospitality Group", logo: "/images/employers/Geronimo.ico" },
+  { name: "Hendricks Commercial Properties", logo: "/images/employers/Hendricks.ico" },
+  { name: "Hidden Creek Estates", logo: "/images/employers/hce.ico" },
+  { name: "Juiced!", logo: "/images/employers/Juiced.ico" },
+  { name: "Kerry Ingredients", logo: "/images/employers/kerry.ico" },
+  { name: "Mid-States Concrete Industries", logo: "/images/employers/msci.ico" },
+  { name: "Rockford Icehogs", logo: "/images/employers/RIH.ico" },
+  { name: "Savant Wealth Management", logo: "/images/employers/savant.ico" }
 ];
 
 export default function EmployerTestimonials() {
@@ -142,7 +142,7 @@ export default function EmployerTestimonials() {
 
         <div className="bg-light rounded-xl p-8 shadow-md">
           <h3 className="text-xl font-bold text-primary mb-8 text-center">
-            Our Partner Organizations
+            Our Concierge Internship Partners
           </h3>
           
           <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4 md:gap-6">

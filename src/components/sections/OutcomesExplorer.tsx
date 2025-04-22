@@ -36,7 +36,7 @@ const outcomeProfiles = [
     employer: "Apple | NYU",
     title: "Data Scientist Intern | MSDS Student",
     location: "New York, NY",
-    linkedin: "vy-mai",
+    linkedin: "lanvymai",
     salary: "130,000",
     skills: [
       "Microsoft Azure Machine Learning",
@@ -58,7 +58,7 @@ const outcomeProfiles = [
     employer: "Northern Trust",
     title: "Sr Analyst Software Engineer | AI & Machine Learning",
     location: "Chicago, IL",
-    linkedin: "abdul-aziz",
+    linkedin: "aziz16034",
     salary: "110,000",
     skills: [
       "Large Language Models (LLM)",
@@ -80,7 +80,7 @@ const outcomeProfiles = [
     employer: "Microsoft",
     title: "Software Engineer II",
     location: "Seattle, WA",
-    linkedin: "mahima-sharma",
+    linkedin: "mahisha123",
     salary: "145,000",
     skills: [
       "Java",
@@ -191,7 +191,7 @@ const outcomeProfiles = [
     employer: "Previously at Deloitte",
     title: "Previously Risk & Financial Advisory Analyst",
     location: "Chicago, IL",
-    linkedin: "danielle-strejc",
+    linkedin: "danielle-strejc-818101b4",
     salary: "85,000",
     skills: [
       "Data Visualization",
@@ -213,7 +213,7 @@ const outcomeProfiles = [
     employer: "Washington University",
     title: "Computational Biologist",
     location: "St. Louis, MO",
-    linkedin: "sandeep-acharya",
+    linkedin: "sandeep-acharya-ph-d-83abb1b7",
     skills: [
       "Scikit-Learn",
       "Programming",
@@ -235,7 +235,7 @@ const outcomeProfiles = [
     employer: "Self-employed Artist",
     title: "Professional Artist",
     location: "Mumbai, India",
-    linkedin: "shambhavi-upadhyaya",
+    linkedin: "shambhaviupadhyaya",
     salary: "3,000",
     skills: [
       "Fine Art",
@@ -258,7 +258,7 @@ const outcomeProfiles = [
     employer: "Boston Consulting Group",
     title: "Project Leader",
     location: "St. Paul, MN",
-    linkedin: "nach-karnik",
+    linkedin: "npkarnik",
     salary: "200,000",
     skills: [
       "Data Analysis",
@@ -281,7 +281,7 @@ const outcomeProfiles = [
     employer: "IBM",
     title: "Partner",
     location: "Chicago, IL",
-    linkedin: "aaron-bauhs",
+    linkedin: "aaronbauhs",
     salary: "250,000",
     skills: [
       "Strategy",
@@ -304,7 +304,7 @@ const outcomeProfiles = [
     employer: "Wells Fargo",
     title: "Analyst",
     location: "United States",
-    linkedin: "ankit-dahiya",
+    linkedin: "ankit00707",
     salary: "85,000",
     skills: [
       "Energy Sector Analysis",
