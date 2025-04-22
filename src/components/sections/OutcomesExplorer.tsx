@@ -411,7 +411,7 @@ export default function OutcomesExplorer() {
   };
 
   return (
-    <section className="py-12 bg-background">
+    <section id="alumni-outcomes" className="py-12 bg-background">
       <div className="container max-w-7xl mx-auto px-4">
         <div className="text-center mb-12 space-y-3">
           <h2 className="text-4xl font-bold text-primary tracking-tight">Alumni Success Stories</h2>

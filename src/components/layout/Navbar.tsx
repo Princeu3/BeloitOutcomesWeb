@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useEffect, useState } from "react";
+import React, { useState, useEffect } from "react";
 import {
   Navbar,
   NavbarBrand,
@@ -17,10 +17,10 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Button } from "@/components/ui/button";
 
 const navItems = [
-  { name: "Home", href: "/" },
-  { name: "Success Stories", href: "/success-stories" },
-  { name: "Employers", href: "/employers" },
-  { name: "Alumni", href: "/alumni" },
+  { name: "Home", href: "/#hero" },
+  { name: "Success Stories", href: "/#success-stories" },
+  { name: "Employers", href: "/#employers" },
+  { name: "Alumni", href: "/#alumni-outcomes" },
 ];
 
 export default function AppNavbar() {
@@ -28,6 +28,18 @@ export default function AppNavbar() {
   const [scrolled, setScrolled] = useState(false);
   const [hoveredItem, setHoveredItem] = useState<string | null>(null);
   const pathname = usePathname();
+
+  const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+    if (href.startsWith('/#')) {
+      e.preventDefault();
+      const targetId = href.replace('/#', '');
+      const targetElement = document.getElementById(targetId);
+      if (targetElement) {
+        targetElement.scrollIntoView({ behavior: 'smooth' });
+        setIsMenuOpen(false);
+      }
+    }
+  };
 
   useEffect(() => {
     const handleScroll = () => {
@@ -92,7 +104,7 @@ export default function AppNavbar() {
           scrolled 
             ? "bg-white/90 backdrop-blur-md shadow-lg" 
             : "bg-white"
-        } transition-all duration-500 border-b border-gray-200/50 h-16`}
+        } transition-all duration-500 border-b border-gray-200/50 h-16 fixed top-0 w-full z-50`}
         shouldHideOnScroll={false}
       >
         <NavbarContent>
@@ -134,6 +146,7 @@ export default function AppNavbar() {
                     ? "text-primary"
                     : "text-gray-600 hover:text-primary"
                 }`}
+                onClick={(e) => handleNavClick(e, item.href)}
               >
                 {item.name}
                 {(pathname === item.href || hoveredItem === item.name) && (
@@ -183,14 +196,16 @@ export default function AppNavbar() {
                           ? "font-medium text-primary"
                           : "text-gray-600 hover:text-primary active:scale-95 transform"
                       }`}
-                      onClick={() => setIsMenuOpen(false)}
+                      onClick={(e) => {
+                        handleNavClick(e, item.href);
+                        setIsMenuOpen(false);
+                      }}
                     >
                       {item.name}
                       {pathname === item.href && (
                         <motion.div
                           layoutId="mobile-indicator"
                           className="absolute -bottom-1 left-0 right-0 h-0.5 bg-primary"
-                          initial={false}
                           transition={{ duration: 0.3 }}
                         />
                       )}

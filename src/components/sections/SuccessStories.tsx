@@ -316,7 +316,7 @@ const AlumniCard: React.FC<{ profile: AlumniProfile; index: number }> = ({ profi
 
 export default function SuccessStories() {
   return (
-    <section className="py-16 bg-gradient-to-b from-gray-50 to-white">
+    <section id="success-stories" className="py-16 bg-gradient-to-b from-gray-50 to-white">
       <div className="container mx-auto px-4 max-w-7xl">
         <div className="text-center mb-6">
           <h2 className="text-4xl font-bold text-gray-900 mb-4">

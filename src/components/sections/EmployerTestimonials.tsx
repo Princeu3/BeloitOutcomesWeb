@@ -63,7 +63,7 @@ export default function EmployerTestimonials() {
   });
 
   return (
-    <section className="py-16 bg-white">
+    <section id="employers" className="py-16 bg-white">
       <div className="container-custom">
         <div className="text-center mb-16">
           <div className="flex justify-center mb-4">
