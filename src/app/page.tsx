@@ -1,11 +1,13 @@
 import React from "react";
 import MainLayout from "@/components/layout/MainLayout";
-import HeroSection from "@/components/sections/HeroSection";
-import OutcomesExplorer from "@/components/sections/OutcomesExplorer";
+import dynamic from "next/dynamic";
 import CareerOutcomesSnapshot from "@/components/sections/CareerOutcomesSnapshot";
-import SuccessStories from "@/components/sections/SuccessStories";
-import EmployerTestimonials from "@/components/sections/EmployerTestimonials";
 import CTASection from "@/components/sections/CTASection";
+
+const HeroSection = dynamic(() => import("@/components/sections/HeroSection"));
+const OutcomesExplorer = dynamic(() => import("@/components/sections/OutcomesExplorer"));
+const SuccessStories = dynamic(() => import("@/components/sections/SuccessStories"));
+const EmployerTestimonials = dynamic(() => import("@/components/sections/EmployerTestimonials"));
 
 export default function Home() {
   return (

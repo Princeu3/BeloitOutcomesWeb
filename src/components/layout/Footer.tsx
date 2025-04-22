@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-import { Link } from "@nextui-org/react";
+import { Link } from "@heroui/react";
 import { FaFacebook, FaTwitter, FaInstagram, FaLinkedin, FaYoutube } from "react-icons/fa";
 import Image from "next/image";
 import { motion } from "framer-motion";

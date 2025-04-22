@@ -34,27 +34,7 @@ const topEmployers = [
     location: "Chicago, IL",
     roles: ["AI & Machine Learning Engineer"]
   },
-  { 
-    name: "Boston Consulting Group", 
-    logo: "/images/employers/bcg.png", 
-    count: 1,
-    location: "Chicago, IL",
-    roles: ["Strategy Consultant"]
-  },
-  { 
-    name: "IBM", 
-    logo: "/images/employers/ibm.png", 
-    count: 1,
-    location: "New York, NY",
-    roles: ["Technology Consultant"]
-  },
-  { 
-    name: "Wells Fargo", 
-    logo: "/images/employers/wells-fargo.png", 
-    count: 1,
-    location: "San Francisco, CA",
-    roles: ["Financial Analyst"]
-  },
+
 ];
 
 const topGradSchools = [

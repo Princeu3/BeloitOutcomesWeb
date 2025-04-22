@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { Inter, Montserrat } from "next/font/google";
-import { NextUIProvider } from "@nextui-org/react";
+import { HeroUIProvider } from "@heroui/react";
 import "./globals.css";
 
 const inter = Inter({
@@ -38,9 +38,9 @@ export default function RootLayout({
         className={`${inter.variable} ${montserrat.variable} antialiased`}
         suppressHydrationWarning={true}
       >
-        <NextUIProvider>
+        <HeroUIProvider>
           <main>{children}</main>
-        </NextUIProvider>
+        </HeroUIProvider>
       </body>
     </html>
   );

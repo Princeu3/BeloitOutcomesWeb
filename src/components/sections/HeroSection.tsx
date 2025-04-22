@@ -100,6 +100,8 @@ export default function HeroSection() {
       <div className="absolute inset-0 z-0 bg-gray-800/90">
         <video
           ref={videoRef}
+          poster="/assets/hero_background.jpg"
+          preload="auto"
           className="absolute inset-0 w-full h-full object-cover opacity-75"
           autoPlay
           muted
@@ -145,6 +147,7 @@ export default function HeroSection() {
                     alt="Beloit College Turtle"
                     width={56}
                     height={56}
+                    sizes="(max-width: 768px) 60vw, 24vw"
                     className="object-contain drop-shadow-2xl"
                     priority
                   />

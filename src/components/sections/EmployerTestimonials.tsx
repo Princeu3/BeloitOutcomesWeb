@@ -51,7 +51,7 @@ const partnerLogos = [
   { name: "Hidden Creek Estates", logo: "/images/employers/hce.ico" },
   { name: "Juiced!", logo: "/images/employers/Juiced.ico" },
   { name: "Kerry Ingredients", logo: "/images/employers/kerry.ico" },
-  { name: "Mid-States Concrete Industries", logo: "/images/employers/msci.ico" },
+  { name: "Mid-States Concrete Industries", logo: "/images/employers/MSCI.ico" },
   { name: "Rockford Icehogs", logo: "/images/employers/RIH.ico" },
   { name: "Savant Wealth Management", logo: "/images/employers/savant.ico" }
 ];
@@ -74,6 +74,8 @@ export default function EmployerTestimonials() {
                 width={64}
                 height={64}
                 className="object-contain"
+                priority
+                style={{ width: 'auto' }}
               />
             </div>
           </div>
@@ -123,8 +125,8 @@ export default function EmployerTestimonials() {
                     <Image
                       src={testimonial.avatar}
                       alt={testimonial.company}
-                      width={48}
-                      height={48}
+                      fill
+                      sizes="48px"
                       className="object-cover"
                     />
                   </div>
@@ -158,6 +160,7 @@ export default function EmployerTestimonials() {
                     src={partner.logo}
                     alt={partner.name}
                     fill
+                    sizes="(max-width: 768px) 50vw, 16vw"
                     className="object-contain"
                   />
                   <div className="absolute inset-0 flex items-center justify-center opacity-0 hover:opacity-100 transition-opacity duration-300 bg-black/5">
