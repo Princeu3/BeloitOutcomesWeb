@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Inter, Montserrat } from "next/font/google";
 import { HeroUIProvider } from "@heroui/react";
+import AlertSlider from "@/components/AlertSlider";
 import "./globals.css";
 
 const inter = Inter({
@@ -38,6 +39,7 @@ export default function RootLayout({
         className={`${inter.variable} ${montserrat.variable} antialiased`}
         suppressHydrationWarning={true}
       >
+        <AlertSlider />
         <HeroUIProvider>
           <main>{children}</main>
         </HeroUIProvider>
