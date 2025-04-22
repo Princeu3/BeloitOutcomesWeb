@@ -35,25 +35,54 @@ export default function CTASection() {
             </div>
 
             <div className="flex flex-wrap gap-4">
-              <Button size="lg" className="bg-primary hover:bg-primary/90 text-white rounded-full">
-                Apply Now
-                <FaArrowRight className="ml-2" />
+              <Button 
+                size="lg" 
+                className="bg-primary hover:bg-primary/90 text-white rounded-full"
+                asChild
+              >
+                <a 
+                  href="https://admissions.beloit.edu/apply"
+                  aria-label="Apply to Beloit College"
+                >
+                  Apply Now
+                  <FaArrowRight className="ml-2" aria-hidden="true" />
+                </a>
               </Button>
-              <Button size="lg" variant="outline" className="rounded-full">
-                Schedule a Visit
-                <FaCalendar className="ml-2" />
+              <Button 
+                size="lg" 
+                variant="outline" 
+                className="rounded-full"
+                asChild
+              >
+                <a 
+                  href="https://admissions.beloit.edu/portal/visit"
+                  aria-label="Schedule a campus visit"
+                >
+                  Schedule a Visit
+                  <FaCalendar className="ml-2" aria-hidden="true" />
+                </a>
               </Button>
             </div>
 
             <div className="flex flex-col sm:flex-row gap-6 text-gray-600">
-              <div className="flex items-center gap-2">
-                <FaEnvelope className="text-primary" />
+              <a 
+                href="mailto:admissions@beloit.edu"
+                className="flex items-center gap-2 hover:text-primary transition-colors"
+                aria-label="Email admissions"
+              >
+                <FaEnvelope className="text-primary" aria-hidden="true" />
                 <span>admissions@beloit.edu</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <FaMapMarkerAlt className="text-primary" />
+              </a>
+              <a 
+                href="https://www.google.com/maps/place/Beloit+College"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-2 hover:text-primary transition-colors"
+                aria-label="View Beloit College location on map"
+              >
+                <FaMapMarkerAlt className="text-primary" aria-hidden="true" />
                 <span>Beloit, Wisconsin</span>
-              </div>
+              </a>
             </div>
           </div>
 
@@ -101,10 +130,10 @@ export default function CTASection() {
         <div className="mt-16 pt-8 border-t border-gray-100">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
             {[
-              { label: "Average Starting Salary", value: "$65K+" },
-              { label: "Graduate School Acceptance", value: "95%" },
-              { label: "International Students", value: "20%" },
-              { label: "Career Success Rate", value: "96%" },
+              { label: "Average Starting Salary", value: "$85,550" },
+              { label: "Graduate School Matriculation", value: "63%" },
+              { label: "International Students", value: "14%" },
+              { label: "Career Success Rate", value: "93%" },
             ].map((stat, index) => (
               <div key={index} className="text-center">
                 <p className="text-2xl font-bold text-gray-900">{stat.value}</p>

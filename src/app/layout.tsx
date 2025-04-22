@@ -39,7 +39,7 @@ export default function RootLayout({
         suppressHydrationWarning={true}
       >
         <NextUIProvider>
-          {children}
+          <main>{children}</main>
         </NextUIProvider>
       </body>
     </html>

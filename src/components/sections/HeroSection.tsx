@@ -9,10 +9,10 @@ import { Button } from "@/components/ui/button";
 
 // Sample statistics
 const statistics = [
-  { value: 96, suffix: "%", title: "Employed or in Grad School", description: "Within 6 months of graduation" },
-  { value: 75, suffix: "+", title: "Countries Represented", description: "Global alumni network" },
-  { value: 200, suffix: "+", title: "Partner Employers", description: "Offering internships and jobs" },
-  { value: 45, suffix: "+", title: "Graduate School Destinations", description: "Including top universities" },
+  { value: 93, suffix: "%", title: "Employed or in Grad School", description: "Within 6 months of graduation" },
+  { value: 40, suffix: "+", title: "Countries Represented", description: "Global alumni network" },
+  { value: 95, suffix: "%", title: "International Students with Aid", description: "Receive financial assistance" },
+  { value: 35, suffix: "K", title: "Average International Scholarship", description: "Per year" },
 ];
 
 export default function HeroSection() {
@@ -95,7 +95,7 @@ export default function HeroSection() {
   };
 
   return (
-    <section className="relative overflow-hidden h-[calc(100vh-64px)] flex items-center" ref={containerRef}>
+    <section id="hero" className="relative overflow-hidden h-[calc(100vh-64px)] flex items-center" ref={containerRef}>
       {/* Video Background */}
       <div className="absolute inset-0 z-0 bg-gray-800/90">
         <video
@@ -180,14 +180,18 @@ export default function HeroSection() {
                   asChild
                   className="group relative overflow-hidden bg-white/10 backdrop-blur-md hover:bg-white/20 text-white px-6 py-3 rounded-lg font-medium text-base transition-all transform hover:scale-105 hover:shadow-2xl border border-white/20"
                 >
-                  <a href="/outcomes">
-                  <span className="relative z-10">Explore Outcomes</span>
-                  <motion.div
-                    className="absolute inset-0 bg-gradient-to-r from-white/20 via-white/10 to-transparent"
-                    initial={{ x: '-100%' }}
-                    whileHover={{ x: '100%' }}
-                    transition={{ duration: 0.8, ease: 'easeInOut' }}
-                  />
+                  <a 
+                    href="#career-outcomes"
+                    aria-label="View detailed career outcomes"
+                  >
+                    <span className="relative z-10">Explore Outcomes</span>
+                    <motion.div
+                      className="absolute inset-0 bg-gradient-to-r from-white/20 via-white/10 to-transparent"
+                      initial={{ x: '-100%' }}
+                      whileHover={{ x: '100%' }}
+                      transition={{ duration: 0.8, ease: 'easeInOut' }}
+                      aria-hidden="true"
+                    />
                   </a>
                 </Button>
                 <Button
@@ -195,14 +199,18 @@ export default function HeroSection() {
                   variant="outline"
                   className="group relative overflow-hidden bg-white/5 backdrop-blur-md border border-white/20 text-white hover:bg-white/10 px-6 py-3 rounded-lg font-medium text-base transition-all transform hover:scale-105"
                 >
-                  <a href="/contact">
-                  <span className="relative z-10">Contact Us</span>
-                  <motion.div
-                    className="absolute inset-0 bg-gradient-to-r from-white/10 via-white/5 to-transparent"
-                    initial={{ x: '-100%' }}
-                    whileHover={{ x: '100%' }}
-                    transition={{ duration: 0.8, ease: 'easeInOut' }}
-                  />
+                  <a 
+                    href="https://www.beloit.edu/contact/"
+                    aria-label="Contact Beloit College"
+                  >
+                    <span className="relative z-10">Contact Us</span>
+                    <motion.div
+                      className="absolute inset-0 bg-gradient-to-r from-white/10 via-white/5 to-transparent"
+                      initial={{ x: '-100%' }}
+                      whileHover={{ x: '100%' }}
+                      transition={{ duration: 0.8, ease: 'easeInOut' }}
+                      aria-hidden="true"
+                    />
                   </a>
                 </Button>
               </motion.div>

@@ -203,14 +203,16 @@ export default function CareerOutcomesSnapshot() {
   };
 
   const totalAlumni = 11000;
+  const minorityEnrollment = 32;
+  const internationalPercentage = 14;
 
   return (
-    <section className="py-16 bg-background">
+    <section id="career-outcomes" className="py-16 bg-background">
       <div className="container max-w-7xl mx-auto px-4">
         <div className="text-center mb-12 space-y-3">
           <h2 className="text-4xl font-bold text-primary tracking-tight">Career Outcomes Snapshot</h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            Discover where Beloit graduates work, study, and thrive around the world.
+            Discover where Beloit graduates work, study, and thrive around the world. With {minorityEnrollment}% minority enrollment and {internationalPercentage}% international students, we are proud of our diverse community.
           </p>
         </div>
 
@@ -421,7 +423,10 @@ export default function CareerOutcomesSnapshot() {
             size="lg"
             className="bg-primary text-primary-foreground hover:bg-primary/90"
           >
-            <a href="/outcomes">
+            <a 
+              href="#career-outcomes"
+              aria-label="View detailed career outcomes data"
+            >
               Explore Detailed Outcomes
             </a>
           </Button>
