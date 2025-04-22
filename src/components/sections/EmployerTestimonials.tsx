@@ -5,6 +5,7 @@ import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import Image from "next/image";
 import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
 
 // Sample testimonial data
 const testimonials = [
@@ -169,6 +170,18 @@ export default function EmployerTestimonials() {
                 </div>
               </motion.div>
             ))}
+          </div>
+          <div className="text-center mt-6">
+            <Button asChild className="w-full max-w-md mx-auto">
+              <a
+                href="https://www.beloit.edu/offices/impact-beloit/concierge-internship-program/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-full block text-center"
+              >
+                Learn More About Concierge Internship Program
+              </a>
+            </Button>
           </div>
         </div>
       </div>

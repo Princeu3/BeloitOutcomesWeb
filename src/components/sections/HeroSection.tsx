@@ -44,7 +44,7 @@ export default function HeroSection() {
     if (video) {
       const onLoaded = () => setIsVideoLoading(false);
       video.addEventListener('loadeddata', onLoaded);
-      const timer = window.setTimeout(() => setIsVideoLoading(false), 1500);
+      const timer = window.setTimeout(() => setIsVideoLoading(false), 1200);
       return () => {
         video.removeEventListener('loadeddata', onLoaded);
         clearTimeout(timer);
@@ -219,7 +219,7 @@ export default function HeroSection() {
                   className="group relative overflow-hidden bg-white/5 backdrop-blur-md border border-white/20 text-white hover:bg-white/10 px-6 py-3 rounded-lg font-medium text-base transition-all transform hover:scale-105"
                 >
                   <a 
-                    href="https://www.beloit.edu/contact/"
+                    href="https://www.beloit.edu/admission/request-info/"
                     aria-label="Contact Beloit College"
                   >
                     <span className="relative z-10">Contact Us</span>
