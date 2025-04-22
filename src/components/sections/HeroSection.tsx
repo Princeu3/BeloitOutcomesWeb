@@ -19,6 +19,7 @@ export default function HeroSection() {
   const [currentStat, setCurrentStat] = useState(0);
   const videoRef = useRef<HTMLVideoElement>(null);
   const containerRef = useRef<HTMLDivElement>(null);
+  const [isVideoLoading, setIsVideoLoading] = useState(true);
   
   const { scrollY } = useScroll();
   const y = useTransform(scrollY, [0, 500], [0, 150]);
@@ -37,6 +38,19 @@ export default function HeroSection() {
       return () => clearInterval(interval);
     }
   }, [inView]);
+
+  useEffect(() => {
+    const video = videoRef.current;
+    if (video) {
+      const onLoaded = () => setIsVideoLoading(false);
+      video.addEventListener('loadeddata', onLoaded);
+      const timer = window.setTimeout(() => setIsVideoLoading(false), 1500);
+      return () => {
+        video.removeEventListener('loadeddata', onLoaded);
+        clearTimeout(timer);
+      };
+    }
+  }, []);
 
   const variants = {
     hidden: { opacity: 0, y: 20 },
@@ -98,6 +112,9 @@ export default function HeroSection() {
     <section id="hero" className="relative overflow-hidden h-[calc(100vh-64px)] flex items-center" ref={containerRef}>
       {/* Video Background */}
       <div className="absolute inset-0 z-0 bg-gray-800/90">
+        <div className={`absolute inset-0 flex items-center justify-center bg-white z-50 transition-opacity duration-500 ${isVideoLoading ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}>
+          <div className="border-4 border-gray-200 border-t-blue-500 rounded-full w-12 h-12 animate-spin"></div>
+        </div>
         <video
           ref={videoRef}
           poster="/assets/hero_background.jpg"
